@@ -1,0 +1,34 @@
+body
+{
+	font-family:Arial;
+	font-size:14px;
+
+}
+.login
+{
+	width:350px;
+	margin:100px auto;
+}
+p.error
+
+	{
+		background: red;
+		color:white;
+		padding:10px;
+	}
+
+input
+{
+	display:block;
+	width:100%;
+	padding:5px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+button
+{
+	width:100%;
+	padding:5px;
+	box-sizing: border-box;
+}
