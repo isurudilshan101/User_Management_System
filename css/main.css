@@ -1,3 +1,7 @@
+*{
+	margin:0;
+}
+
 body
 {
 	font-family:Arial;
@@ -8,6 +12,10 @@ body
 {
 	width:350px;
 	margin:100px auto;
+}
+p
+{
+	margin-bottom: 15px;
 }
 p.error
 
@@ -32,4 +40,19 @@ button
 	padding:5px;
 	box-sizing: border-box;
 }
-/*hjkhj*/
+
+header {
+	background: #eee;
+	overflow: auto;
+	padding: 10px;
+}
+header .appname
+{
+	background: #eee;
+	overflow:auto;
+}
+
+header .loggedin
+{
+	float:right;
+}

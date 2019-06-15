@@ -1,4 +1,5 @@
-<?php require_once('inc/connection.php');?>
+<?php session_start(); ?>
+<?php require_once('inc/connection.php'); ?>
 <?php
  	//check for submission
 
@@ -40,9 +41,13 @@ $error=array();
      	if(mysqli_num_rows($result_set)==1)
      	{
      		//vallid user found
+     		$user=mysqli_fetch_assoc($result_set);
+     		$_SESSION['user_id']=$user['Id'];
+     		$_SESSION['first_name']=$user['first_name'];
 	//redirect to users.php
 
      			header('Location:users.php');
+
      	}else{
      		//user name and password invalid
      		$errors[]='Invalid Username/Password';
