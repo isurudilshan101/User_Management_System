@@ -25,6 +25,14 @@ p.error
 		padding:10px;
 	}
 
+p.info
+
+	{
+		background: green;
+		color:white;
+		padding:10px;
+	}
+
 input
 {
 	display:block;

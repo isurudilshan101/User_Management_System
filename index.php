@@ -91,6 +91,15 @@ $error=array();
 
 				?>
 
+				<?php
+						if (isset($_GET['logout']))
+						{
+							echo '<p class="info">You have succesfully logged out from the system</p>';
+						}
+
+
+				?>
+
 				<p>
 					<label for="">Username:</label>
 					<input type="text" name="email" id="" placeholder="Email Address">	
