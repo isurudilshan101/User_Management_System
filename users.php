@@ -10,6 +10,28 @@ if( !isset($_SESSION['user_id'])){
 	//echo $_SESSION['first_name'];
 	//echo $_SESSION['user_id'];
 
+	$user_list='';
+	//getting the list of users
+	$query="SELECT * FROM user WHERE is_deleted=0 ORDER BY first_name";
+	$users=mysqli_query($connection,$query);
+
+	if($users){
+		while($user=mysqli_fetch_assoc($users)){
+			$user_list .="<tr>";
+
+			$user_list .="<td>{$user['first_name']}</td>";
+			$user_list .="<td>{$user['last_name']}</td>";
+			$user_list .="<td>{$user['last_login']}</td>";
+			$user_list .="<td><a href=\"modify-user.php?user_id={$user['Id']}\">Edit</a></td>";
+			$user_list .="<td><a href=\"delete-user.php?user_id={$user['Id']}\">Delete</a></td>";
+
+			$user_list .="</tr>";
+
+
+		}
+	}else{
+		echo "Database query failed.";
+	}
 
 
 ?>
@@ -25,5 +47,30 @@ if( !isset($_SESSION['user_id'])){
 		<div class="appname"> User Management System</div>
 		<div class="loggedin">Welcome <?php echo $_SESSION['first_name'];?>! <a href="logout.php">Log Out</a></div>
 	</header>
-	<h1>Users</h1>
+	
+
+<main>
+
+	
+ <h1>Users<span> <a href="add-user.php>">+ Add New</a></span></h1>
+
+<table class="masterlist">
+	<tr>
+		
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Last Login</th>
+		<th>Edit</th>		
+		<th>Delete</th>
+
+	</tr>
+	
+	<?php echo $user_list; ?>
+
+</table>
+
+
+
+</main>
+
 </body>

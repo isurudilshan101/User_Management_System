@@ -5,12 +5,12 @@
 body
 {
 	font-family:Arial;
-	font-size:14px;
+	font-size:16px;
 
 }
 .login
 {
-	width:350px;
+	width:350px; 
 	margin:100px auto;
 }
 p
@@ -64,3 +64,39 @@ header .loggedin
 {
 	float:right;
 }
+
+main 
+{
+	width: 1000px;
+	margin:30px auto;
+}
+
+main h1
+{
+	margin-bottom: 20px;
+	font-size: 50px;
+}
+
+main h1 span
+{
+	font-size: 20px;
+}
+
+table.masterlist
+{
+	width:100%;
+	border-collapse:collapse;
+	text-align: left;
+}
+
+table.masterlist th{
+	background-color: #aaa;
+
+}
+
+table.masterlist th, table.masterlist td
+{
+	padding:10px;
+	border-bottom: 1px solid #aaa;
+}
+
