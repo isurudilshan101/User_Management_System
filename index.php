@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php require_once('inc/connection.php'); ?>
+<?php require_once('inc/functions.php'); ?>
 <?php
  	//check for submission
 
@@ -36,14 +37,23 @@ $error=array();
 
     $result_set=mysqli_query($connection,$query);
 
-     if($result_set){
+     verify_query($result_set);
 //query succesful
+
      	if(mysqli_num_rows($result_set)==1)
      	{
      		//vallid user found
      		$user=mysqli_fetch_assoc($result_set);
      		$_SESSION['user_id']=$user['Id'];
      		$_SESSION['first_name']=$user['first_name'];
+
+//updating last login
+     		$query="UPDATE user SET last_login = NOW() ";
+     		$query .= "WHERE Id= {$_SESSION['user_id']} LIMIT 1";
+
+     		$result_set =mysqli_query($connection,$query);
+
+     		verify_query($result_set);
 	//redirect to users.php
 
      			header('Location:users.php');
@@ -54,9 +64,7 @@ $error=array();
 
      	}
 
-     }else{
-     	$errors[]='Database query failed';
-     }
+    
 
 	//check if the user is valid
 
