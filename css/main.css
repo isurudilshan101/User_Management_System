@@ -100,3 +100,17 @@ table.masterlist th, table.masterlist td
 	border-bottom: 1px solid #aaa;
 }
 
+form.userform label
+{
+	width: 30%;
+	float: left;
+}
+form.userform input
+{
+	width: 60;
+}
+
+button .userform
+{
+
+}

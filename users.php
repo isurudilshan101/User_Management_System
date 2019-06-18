@@ -50,7 +50,7 @@ if( !isset($_SESSION['user_id'])){
 <main>
 
 	
- <h1>Users<span> <a href="add-user.php>">+ Add New</a></span></h1>
+ <h1>Users<span> <a href="add-user.php">+ Add New</a></span></h1>
 
 <table class="masterlist">
 	<tr>
