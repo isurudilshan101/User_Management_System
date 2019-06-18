@@ -12,6 +12,9 @@
 	<header>
 		<div class="appname"> User Management System</div>
 		<div class="loggedin">Welcome <?php echo $_SESSION['first_name'];?>! <a href="logout.php">Log Out</a></div>
+
+
+
 	</header>
 	
 
@@ -24,19 +27,25 @@
 <form action="add-user.php" method="post" class="userform">
 	<p>
 		<label for="">First Name:</label>
-		<input type="text" name="first_name">
+		<input type="text" name="first_name" required>
+
+	</p>
+
+	<p>
+		<label for="">Last Name:</label>
+		<input type="text" name="last_name" required>
 
 	</p>
 
 	<p>
 		<label for="">Email Address:</label>
-		<input type="email" name="name">
+		<input type="email" name="name" required>
 
 	</p>
 
 	<p>
 		<label for="">New Password:</label>
-		<input type="password" name=""password>
+		<input type="password" name=""password required>
 
 	</p>
 
@@ -51,3 +60,4 @@
 </main>
 
 </body>
+</html>

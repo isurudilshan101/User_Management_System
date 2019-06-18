@@ -107,10 +107,12 @@ form.userform label
 }
 form.userform input
 {
-	width: 60;
+	width: 60%;
 }
 
-button .userform
+form.userform button
 {
-
+	width:200px;
 }
+
+
