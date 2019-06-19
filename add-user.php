@@ -1,6 +1,30 @@
 <?php session_start(); ?>
 <?php require_once('inc/connection.php'); ?>
 <?php require_once('inc/functions.php'); ?>
+
+ <?php
+
+ $errors=array();
+ if(isset($_POST['submit'])){
+
+//checking required fields
+$req_fields = array('first_name', 'last_name','email','password');
+
+	foreach($req_fields as $field){
+
+		if(empty(trim($_POST[$field]))){
+ 		$errors[]=$field . ' is required';
+
+ 	}
+
+	}
+
+ 
+ } 
+ 
+ ?>
+
+
 <!DOCTYPE html>
 <htm lang="en">
 <head>
@@ -23,29 +47,44 @@
 	
  <h1>Add New User<span> <a href="users.php"> < Back to user list </a></span></h1>
 
+ <?php
+
+if(!empty($errors)){
+
+	echo '<div class="errmsg">';
+	echo '<b>there were error(s) on your form.</b><br>';
+	foreach($errors as $error){
+		echo  '- ' . $error . '<br>';
+	}
+	echo '</div>';
+
+
+}
+
+?>
 
 <form action="add-user.php" method="post" class="userform">
 	<p>
 		<label for="">First Name:</label>
-		<input type="text" name="first_name" required>
+		<input type="text" name="first_name">
 
 	</p>
 
 	<p>
 		<label for="">Last Name:</label>
-		<input type="text" name="last_name" required>
+		<input type="text" name="last_name" >
 
 	</p>
 
 	<p>
 		<label for="">Email Address:</label>
-		<input type="email" name="name" required>
+		<input type="email" name="email" >
 
 	</p>
 
 	<p>
 		<label for="">New Password:</label>
-		<input type="password" name=""password required>
+		<input type="password" name="password" >
 
 	</p>
 
