@@ -8,7 +8,19 @@
  if(isset($_POST['submit'])){
 
 //checking required fields
-$req_fields = array('first_name', 'last_name','email','password');
+$req_fields = array('first_name'=>50, 'last_name'=>50,'email'=>50,'password'=>40);
+
+	foreach($max_len_fields as  $field=>$max_len){
+
+		if(strlen(trim($_POST[$field]))>$max_len){
+ 		$errors[]=$field . ' must be lss than' . $max_len . 'characters';
+  
+ 	}
+
+	}
+
+		//checking max lenth
+	$max_len_fields = array('first_name', 'last_name','email','password');
 
 	foreach($req_fields as $field){
 
@@ -17,8 +29,7 @@ $req_fields = array('first_name', 'last_name','email','password');
 
  	}
 
-	}
-
+	}  
  
  } 
  
